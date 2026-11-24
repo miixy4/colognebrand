@@ -4,262 +4,536 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VANTA | Fragrance</title>
+<title>VANTA | Own the Atmosphere</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+  --gold: #c8a66a;
+  --gold-light: #e5c98c;
+  --black: #070707;
+  --panel: #101010;
+  --text: #f1eee7;
+  --muted: #8c8982;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: #080808;
-  color: #f5f1e8;
-  font-family: Arial, sans-serif;
+  background: var(--black);
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
 }
+
+/* NAVBAR */
+
 nav {
+  height: 75px;
+  padding: 0 7%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  padding: 25px 8%;
-  border-bottom: 1px solid #222;
+  background: #080808;
+  border-bottom: 1px solid #302515;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
+
 .logo {
-  letter-spacing: 7px;
-  font-size: 27px;
-  color: #c9a96a;
-  font-weight: bold;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  letter-spacing: 12px;
+  color: var(--gold);
 }
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 25px;
-  font-size: 12px;
-  letter-spacing: 2px;
-}
-.hero {
-  min-height: 85vh;
+
+.navlinks {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  gap: 38px;
   align-items: center;
-  text-align: center;
-  padding: 40px 20px;
-  background: radial-gradient(ellipse at center, #272117 0%, #080808 70%);
 }
+
+.navlinks a {
+  text-decoration: none;
+  color: #ddd;
+  font-size: 11px;
+  letter-spacing: 3px;
+  transition: .3s;
+}
+
+.navlinks a:hover {
+  color: var(--gold);
+}
+
+.cart {
+  border: 1px solid #4c3b20;
+  padding: 10px 15px;
+  color: var(--gold);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 660px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, #050505 0%, #050505ee 35%, #05050555 75%, #05050533),
+    url('https://miro.medium.com/v2/resize%3Afit%3A1400/1%2A1rbWjCGhmhK02LkeVG325A.png')
+    center/cover no-repeat;
+}
+
+.hero-content {
+  padding-left: 10%;
+  position: relative;
+  z-index: 2;
+}
+
 .hero h1 {
-  font-size: clamp(60px, 12vw, 130px);
-  letter-spacing: 20px;
-  color: #c9a96a;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(70px, 11vw, 150px);
+  font-weight: 400;
+  letter-spacing: 24px;
+  color: var(--gold);
 }
-.hero p {
-  letter-spacing: 5px;
-  color: #aaa;
-  margin-top: 15px;
+
+.hero .tagline {
+  letter-spacing: 9px;
   font-size: 13px;
+  margin-top: 15px;
+  color: #e2d7c1;
 }
+
 .hero button {
-  margin-top: 35px;
-  padding: 15px 35px;
+  margin-top: 42px;
   background: transparent;
-  border: 1px solid #c9a96a;
-  color: #c9a96a;
+  border: 1px solid var(--gold);
+  padding: 17px 34px;
+  color: var(--gold);
   letter-spacing: 3px;
   cursor: pointer;
   transition: .3s;
 }
+
 .hero button:hover {
-  background: #c9a96a;
-  color: #080808;
+  background: var(--gold);
+  color: #050505;
 }
+
+/* SECTION TITLES */
+
 .section {
-  padding: 90px 8%;
+  padding: 90px 7%;
 }
-.section h2 {
-  text-align: center;
-  color: #c9a96a;
-  letter-spacing: 6px;
-  font-size: 32px;
-  margin-bottom: 50px;
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 48px;
 }
+
+.section-title::before,
+.section-title::after {
+  content: "";
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #8e6c35);
+  flex: 1;
+}
+
+.section-title::after {
+  background: linear-gradient(90deg, #8e6c35, transparent);
+}
+
+.section-title h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 31px;
+  letter-spacing: 12px;
+  color: var(--gold);
+}
+
+/* PRODUCTS */
+
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
 }
+
 .product {
-  background: #111;
-  border: 1px solid #222;
-  padding: 25px;
+  background: #0b0b0b;
+  border: 1px solid #302719;
+  transition: .4s;
+  overflow: hidden;
+}
+
+.product:hover {
+  border-color: #b18c4d;
+  transform: translateY(-6px);
+}
+
+.product-image {
+  height: 370px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse, #292015 0%, #101010 55%, #080808 100%);
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .7s;
+  filter: brightness(.82);
+}
+
+.product:hover .product-image img {
+  transform: scale(1.05);
+  filter: brightness(1);
+}
+
+.product-info {
   text-align: center;
+  padding: 27px 20px 30px;
+}
+
+.product-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 25px;
+  letter-spacing: 5px;
+  font-weight: 500;
+  color: #e8d4a8;
+}
+
+.product-info p {
+  color: #999;
+  font-size: 12px;
+  margin-top: 12px;
+  letter-spacing: 1px;
+}
+
+.price {
+  color: var(--gold) !important;
+  font-size: 19px !important;
+  margin-top: 20px !important;
+}
+
+.add-btn {
+  margin-top: 22px;
+  border: 1px solid #92713d;
+  background: transparent;
+  color: var(--gold);
+  padding: 12px 30px;
+  letter-spacing: 2px;
+  cursor: pointer;
   transition: .3s;
 }
-.product:hover {
-  transform: translateY(-5px);
-  border-color: #c9a96a;
+
+.add-btn:hover {
+  background: var(--gold);
+  color: black;
 }
-.bottle {
-  height: 260px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: radial-gradient(circle, #29241b, #111 70%);
-  margin-bottom: 25px;
-}
-.flacon {
-  width: 115px;
-  height: 175px;
-  background: linear-gradient(110deg, #222, #b18b46, #171717);
-  border: 1px solid #b99a5b;
-  border-radius: 12px 12px 22px 22px;
-  position: relative;
-  box-shadow: 0 0 35px #c9a96a22;
-}
-.flacon::before {
-  content: "";
-  width: 42px;
-  height: 30px;
-  background: #c9a96a;
-  position: absolute;
-  top: -30px;
-  left: 35px;
-  border-radius: 4px 4px 0 0;
-}
-.flacon::after {
-  content: "VANTA";
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  top: 75px;
-  font-size: 14px;
-  letter-spacing: 4px;
-  color: #f0d6a0;
-}
-.product h3 {
-  letter-spacing: 3px;
-  margin-bottom: 12px;
-}
-.product p {
-  color: #999;
-  font-size: 14px;
-  line-height: 1.7;
-}
-.price {
-  color: #c9a96a !important;
-  font-size: 18px !important;
-  margin-top: 15px;
-}
+
+/* ABOUT */
+
 .about {
-  text-align: center;
-  max-width: 700px;
+  max-width: 850px;
   margin: auto;
-  line-height: 2;
-  color: #aaa;
-}
-.about strong {
-  color: #c9a96a;
-}
-footer {
-  padding: 35px 20px;
-  border-top: 1px solid #222;
   text-align: center;
-  color: #777;
-  font-size: 12px;
-  letter-spacing: 2px;
+  color: #aaa;
+  line-height: 2.2;
+  font-size: 14px;
 }
-footer span {
-  color: #c9a96a;
+
+.about strong {
+  color: #d3b577;
+  font-weight: 500;
 }
-@media(max-width:600px) {
-  nav {
-    padding: 20px;
-    flex-direction: column;
-    gap: 18px;
+
+.founders {
+  margin-top: 25px;
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 23px;
+  letter-spacing: 3px;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid #332719;
+  padding: 30px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #888;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+footer .footer-logo {
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 5px;
+  font-size: 17px;
+}
+
+/* CART POPUP */
+
+.cart-popup {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #18140d;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 18px 25px;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: .3s;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.cart-popup.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width: 850px) {
+  .products {
+    grid-template-columns: 1fr 1fr;
   }
-  nav a {
-    margin: 0 8px;
+}
+
+@media(max-width: 600px) {
+  nav {
+    padding: 0 5%;
+    height: 65px;
+  }
+
+  .logo {
+    font-size: 27px;
+    letter-spacing: 7px;
+  }
+
+  .navlinks {
+    gap: 14px;
+  }
+
+  .navlinks a {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .cart {
+    padding: 8px;
     font-size: 10px;
   }
-  .hero h1 {
-    letter-spacing: 8px;
+
+  .hero {
+    min-height: 520px;
+    background-position: 62% center;
   }
+
+  .hero-content {
+    padding: 0 7%;
+  }
+
+  .hero h1 {
+    font-size: 66px;
+    letter-spacing: 10px;
+  }
+
+  .hero .tagline {
+    font-size: 10px;
+    letter-spacing: 4px;
+  }
+
   .section {
-    padding: 60px 6%;
+    padding: 55px 5%;
+  }
+
+  .section-title h2 {
+    font-size: 22px;
+    letter-spacing: 6px;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .product-image {
+    height: 350px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
   }
 }
 </style>
 </head>
+
 <body>
 
 <nav>
   <div class="logo">VANTA</div>
-  <div>
+
+  <div class="navlinks">
     <a href="#home">HOME</a>
     <a href="#shop">SHOP</a>
     <a href="#about">ABOUT</a>
   </div>
+
+  <div class="cart" id="cart">BAG (0)</div>
 </nav>
 
+<!-- HERO -->
+
 <section class="hero" id="home">
-  <h1>VANTA</h1>
-  <p>OWN THE ATMOSPHERE</p>
-  <button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
-    EXPLORE COLLECTION
-  </button>
+  <div class="hero-content">
+    <h1>VANTA</h1>
+    <div class="tagline">OWN THE ATMOSPHERE</div>
+
+    <button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+      EXPLORE COLLECTION →
+    </button>
+  </div>
 </section>
+
+<!-- COLLECTION -->
 
 <section class="section" id="shop">
-  <h2>THE COLLECTION</h2>
+  <div class="section-title">
+    <h2>THE COLLECTION</h2>
+  </div>
+
   <div class="products">
 
-    <div class="product">
-      <div class="bottle">
-        <div class="flacon"></div>
-      </div>
-      <h3>VANTA NOIR</h3>
-      <p>Dark woods · Vanilla · Amber</p>
-      <p class="price">$49.00</p>
-    </div>
+    <!-- NOIR -->
 
     <div class="product">
-      <div class="bottle">
-        <div class="flacon"></div>
+      <div class="product-image">
+        <img
+          src="https://assets.promptbase.com/Images%2FDNhQomyR8ZZ9Q0ThNZif%2Fresized%2F1779200923652h_800x800.webp?alt=media&token=99dfe374-9ee1-46c4-9b5b-c143118bb922"
+          alt="VANTA Noir black luxury fragrance bottle">
       </div>
-      <h3>VANTA AURA</h3>
-      <p>Bergamot · Fresh air · Cedar</p>
-      <p class="price">$45.00</p>
+
+      <div class="product-info">
+        <h3>VANTA NOIR</h3>
+        <p>Dark woods · Vanilla · Amber</p>
+        <p class="price">$49.00</p>
+        <button class="add-btn" onclick="addToCart('VANTA NOIR')">ADD TO CART</button>
+      </div>
     </div>
 
+    <!-- AURA -->
+
     <div class="product">
-      <div class="bottle">
-        <div class="flacon"></div>
+      <div class="product-image">
+        <img
+          src="https://www.unoudinary.com/luxury-black-perfume-bottle-with-gold-accents.jpg"
+          alt="VANTA Aura luxury fragrance bottle">
       </div>
-      <h3>VANTA NIGHT</h3>
-      <p>Spice · Musk · Warm woods</p>
-      <p class="price">$55.00</p>
+
+      <div class="product-info">
+        <h3>VANTA AURA</h3>
+        <p>Bergamot · Fresh air · Cedar</p>
+        <p class="price">$45.00</p>
+        <button class="add-btn" onclick="addToCart('VANTA AURA')">ADD TO CART</button>
+      </div>
+    </div>
+
+    <!-- NIGHT -->
+
+    <div class="product">
+      <div class="product-image">
+        <img
+          src="https://www.myperfumeshop.ae/cdn/shop/files/10297034965124_Mancera_Black_Gold_EDP_for_Men_notes_top_notes_luxury.png?v=1779553600&width=2048"
+          alt="VANTA Night luxury fragrance bottle">
+      </div>
+
+      <div class="product-info">
+        <h3>VANTA NIGHT</h3>
+        <p>Spice · Musk · Warm woods</p>
+        <p class="price">$55.00</p>
+        <button class="add-btn" onclick="addToCart('VANTA NIGHT')">ADD TO CART</button>
+      </div>
     </div>
 
   </div>
 </section>
+
+<!-- STORY -->
 
 <section class="section" id="about">
-  <h2>OUR STORY</h2>
+  <div class="section-title">
+    <h2>OUR STORY</h2>
+  </div>
+
   <div class="about">
     <p>
-      <strong>VANTA</strong> was built around individuality, confidence,
-      and creating a scent that leaves an impression.
-      Founded by <strong>Logan & Drew</strong>, we're creating
-      a brand that brings a bold vision to fragrance.
-      <br><br>
-      <i>Own the atmosphere.</i>
+      VANTA was built around individuality, confidence, and creating a scent
+      that leaves an impression. We believe fragrance is more than a scent.
+      It's an atmosphere, a memory, and a statement.
     </p>
+
+    <p>
+      Founded by <strong>Logan & Drew</strong>, we're bringing a bold vision
+      to fragrance with timeless style and a modern edge.
+    </p>
+
+    <div class="founders">OWN THE ATMOSPHERE.</div>
   </div>
 </section>
 
+<!-- FOOTER -->
+
 <footer>
-  VANTA © 2026 · CREATED BY LOGAN & DREW
-  <br><br>
-  <span>OWN THE ATMOSPHERE</span>
+  <div>VANTA © 2026 · CREATED BY LOGAN & DREW</div>
+  <div class="footer-logo">OWN THE ATMOSPHERE</div>
 </footer>
+
+<div class="cart-popup" id="popup">
+  Added to bag
+</div>
+
+<script>
+let cartCount = 0;
+
+function addToCart(name) {
+  cartCount++;
+  document.getElementById("cart").textContent = "BAG (" + cartCount + ")";
+
+  const popup = document.getElementById("popup");
+  popup.textContent = name + " added to bag";
+
+  popup.classList.add("show");
+
+  setTimeout(() => {
+    popup.classList.remove("show");
+  }, 2200);
+}
+</script>
 
 </body>
 </html>
