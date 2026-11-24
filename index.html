@@ -1,1 +1,211 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VANTA | Own the Atmosphere</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#070707;color:#eee;font-family:Montserrat,sans-serif}
+:root{--gold:#c8a66a;--gold2:#ead4a1}
+
+nav{height:75px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;background:#080808;border-bottom:1px solid #302515;position:sticky;top:0;z-index:10}
+.logo{font-family:'Cormorant Garamond',serif;font-size:35px;letter-spacing:10px;color:var(--gold)}
+.navlinks{display:flex;gap:30px}
+.navlinks a{color:#ddd;text-decoration:none;font-size:11px;letter-spacing:2px}
+.navlinks a:hover{color:var(--gold)}
+.cart{border:1px solid #4c3b20;padding:10px 14px;color:var(--gold);font-size:12px}
+
+.hero{min-height:650px;display:flex;align-items:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 75% 50%,#332719 0%,#16120c 25%,#070707 72%)}
+.hero:after{content:"";position:absolute;right:10%;width:430px;height:430px;border-radius:50%;background:#c8a66a0a;filter:blur(50px)}
+.hero-content{padding-left:10%;position:relative;z-index:2}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(70px,11vw,150px);font-weight:400;letter-spacing:22px;color:var(--gold)}
+.tagline{letter-spacing:8px;font-size:13px;margin-top:15px;color:#e2d7c1}
+.hero button{margin-top:40px;background:transparent;border:1px solid var(--gold);padding:17px 32px;color:var(--gold);letter-spacing:3px;cursor:pointer}
+.hero button:hover{background:var(--gold);color:#050505}
+
+.section{padding:85px 7%}
+.section-title{display:flex;align-items:center;gap:25px;justify-content:center;margin-bottom:50px}
+.section-title:before,.section-title:after{content:"";height:1px;background:linear-gradient(90deg,transparent,#8e6c35);flex:1}
+.section-title:after{background:linear-gradient(90deg,#8e6c35,transparent)}
+.section-title h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:30px;letter-spacing:10px;color:var(--gold)}
+
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.product{background:#0b0b0b;border:1px solid #302719;overflow:hidden;transition:.35s}
+.product:hover{border-color:#b18c4d;transform:translateY(-5px)}
+.product-image{height:370px;position:relative;overflow:hidden;background:radial-gradient(ellipse at center,#292015,#101010 60%,#080808);display:flex;justify-content:center;align-items:center}
+
+/* Bottle scene */
+.scene{width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:relative}
+.scene:before{content:"";position:absolute;width:180px;height:30px;bottom:55px;background:#c8a66a22;filter:blur(20px);border-radius:50%}
+.bottle{width:132px;height:210px;position:relative;border-radius:17px 17px 24px 24px;border:1px solid #a78b58;box-shadow:inset 8px 0 12px #ffffff18,inset -8px 0 15px #0008,0 25px 30px #0008;z-index:1}
+.bottle:before{content:"";position:absolute;top:-38px;left:43px;width:44px;height:40px;border-radius:5px 5px 0 0;background:linear-gradient(90deg,#5c482a,#d5b578,#796034,#e0c588,#5b4729);box-shadow:0 0 8px #0008}
+.bottle:after{content:"";position:absolute;left:13px;top:10px;width:7px;height:180px;border-radius:20px;background:linear-gradient(#ffffff35,#ffffff05);filter:blur(1px)}
+.bottle-label{position:absolute;top:65px;left:0;right:0;text-align:center;padding:15px 5px;border-top:1px solid #c8a66a88;border-bottom:1px solid #c8a66a88;background:#05050599}
+.bottle-label strong{display:block;font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:4px;color:#d8b875}
+.bottle-label small{display:block;margin-top:8px;font-size:8px;letter-spacing:3px;color:#d2c6ac}
+.bottle-label span{display:block;margin-top:7px;font-size:7px;letter-spacing:2px;color:#8f805e}
+
+/* Individual styles */
+.noir{background:linear-gradient(100deg,#080808,#272727 18%,#111 45%,#353535 75%,#090909);border-color:#777}
+.aura{background:linear-gradient(100deg,#10201b,#526c56 15%,#243d2e 45%,#779174 75%,#14231b);border-color:#9dba8a}
+.night{background:linear-gradient(100deg,#201008,#66411c 15%,#291809 45%,#805927 75%,#261408);border-color:#b18c4d}
+.aura .bottle-label strong{color:#c9dfb3}
+.night .bottle-label strong{color:#e3c27e}
+
+.product-info{text-align:center;padding:25px 15px 30px}
+.product-info h3{font-family:'Cormorant Garamond',serif;font-size:24px;letter-spacing:5px;color:#e8d4a8;font-weight:500}
+.product-info p{color:#999;font-size:12px;margin-top:12px;letter-spacing:1px}
+.price{color:var(--gold)!important;font-size:19px!important;margin-top:18px!important}
+.add-btn{margin-top:20px;border:1px solid #92713d;background:transparent;color:var(--gold);padding:12px 28px;letter-spacing:2px;cursor:pointer}
+.add-btn:hover{background:var(--gold);color:black}
+
+.about{max-width:800px;margin:auto;text-align:center;color:#aaa;line-height:2.2;font-size:14px}
+.about strong{color:#d3b577}
+.founders{margin-top:25px;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:23px;letter-spacing:3px}
+
+footer{border-top:1px solid #332719;padding:30px 7%;display:flex;justify-content:space-between;align-items:center;color:#888;font-size:10px;letter-spacing:3px}
+.footer-logo{color:var(--gold);font-family:'Cormorant Garamond',serif;letter-spacing:5px;font-size:17px}
+
+.popup{position:fixed;bottom:25px;right:25px;background:#18140d;border:1px solid var(--gold);color:var(--gold);padding:18px 25px;opacity:0;transform:translateY(15px);transition:.3s;z-index:20;pointer-events:none}
+.popup.show{opacity:1;transform:translateY(0)}
+
+@media(max-width:850px){.products{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){
+nav{padding:0 4%;height:65px}
+.logo{font-size:26px;letter-spacing:6px}
+.navlinks{gap:12px}
+.navlinks a{font-size:9px;letter-spacing:1px}
+.cart{padding:7px;font-size:10px}
+.hero{min-height:520px}
+.hero-content{padding:0 7%}
+.hero h1{font-size:65px;letter-spacing:9px}
+.tagline{font-size:10px;letter-spacing:4px}
+.section{padding:55px 5%}
+.section-title h2{font-size:21px;letter-spacing:5px}
+.products{grid-template-columns:1fr;gap:22px}
+.product-image{height:350px}
+footer{flex-direction:column;gap:15px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">VANTA</div>
+  <div class="navlinks">
+    <a href="#home">HOME</a>
+    <a href="#shop">SHOP</a>
+    <a href="#about">ABOUT</a>
+  </div>
+  <div class="cart" id="cart">BAG (0)</div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>VANTA</h1>
+    <div class="tagline">OWN THE ATMOSPHERE</div>
+    <button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">EXPLORE COLLECTION →</button>
+  </div>
+</section>
+
+<section class="section" id="shop">
+  <div class="section-title"><h2>THE COLLECTION</h2></div>
+  <div class="products">
+
+    <div class="product">
+      <div class="product-image">
+        <div class="scene">
+          <div class="bottle noir">
+            <div class="bottle-label">
+              <strong>VANTA</strong>
+              <small>NOIR</small>
+              <span>EAU DE PARFUM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>VANTA NOIR</h3>
+        <p>Dark woods · Vanilla · Amber</p>
+        <p class="price">$49.00</p>
+        <button class="add-btn" onclick="addToCart('VANTA NOIR')">ADD TO CART</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-image">
+        <div class="scene">
+          <div class="bottle aura">
+            <div class="bottle-label">
+              <strong>VANTA</strong>
+              <small>AURA</small>
+              <span>EAU DE PARFUM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>VANTA AURA</h3>
+        <p>Bergamot · Fresh air · Cedar</p>
+        <p class="price">$45.00</p>
+        <button class="add-btn" onclick="addToCart('VANTA AURA')">ADD TO CART</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-image">
+        <div class="scene">
+          <div class="bottle night">
+            <div class="bottle-label">
+              <strong>VANTA</strong>
+              <small>NIGHT</small>
+              <span>EAU DE PARFUM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3>VANTA NIGHT</h3>
+        <p>Spice · Musk · Warm woods</p>
+        <p class="price">$55.00</p>
+        <button class="add-btn" onclick="addToCart('VANTA NIGHT')">ADD TO CART</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="section-title"><h2>OUR STORY</h2></div>
+  <div class="about">
+    <p>VANTA was built around individuality, confidence, and creating a scent that leaves an impression. We believe fragrance is more than a scent. It's an atmosphere, a memory, and a statement.</p>
+    <br>
+    <p>Founded by <strong>Logan & Drew</strong>, we're bringing a bold vision to fragrance with timeless style and a modern edge.</p>
+    <div class="founders">OWN THE ATMOSPHERE.</div>
+  </div>
+</section>
+
+<footer>
+  <div>VANTA © 2026 · CREATED BY LOGAN & DREW</div>
+  <div class="footer-logo">OWN THE ATMOSPHERE</div>
+</footer>
+
+<div class="popup" id="popup">Added to bag</div>
+
+<script>
+let cartCount=0;
+function addToCart(name){
+  cartCount++;
+  document.getElementById('cart').textContent='BAG ('+cartCount+')';
+  const popup=document.getElementById('popup');
+  popup.textContent=name+' added to bag';
+  popup.classList.add('show');
+  setTimeout(()=>popup.classList.remove('show'),2200);
+}
+</script>
+</body>
+</html>
