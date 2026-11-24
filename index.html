@@ -1,1 +1,265 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VANTA | Fragrance</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #080808;
+  color: #f5f1e8;
+  font-family: Arial, sans-serif;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 8%;
+  border-bottom: 1px solid #222;
+}
+.logo {
+  letter-spacing: 7px;
+  font-size: 27px;
+  color: #c9a96a;
+  font-weight: bold;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+.hero {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  background: radial-gradient(ellipse at center, #272117 0%, #080808 70%);
+}
+.hero h1 {
+  font-size: clamp(60px, 12vw, 130px);
+  letter-spacing: 20px;
+  color: #c9a96a;
+}
+.hero p {
+  letter-spacing: 5px;
+  color: #aaa;
+  margin-top: 15px;
+  font-size: 13px;
+}
+.hero button {
+  margin-top: 35px;
+  padding: 15px 35px;
+  background: transparent;
+  border: 1px solid #c9a96a;
+  color: #c9a96a;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: .3s;
+}
+.hero button:hover {
+  background: #c9a96a;
+  color: #080808;
+}
+.section {
+  padding: 90px 8%;
+}
+.section h2 {
+  text-align: center;
+  color: #c9a96a;
+  letter-spacing: 6px;
+  font-size: 32px;
+  margin-bottom: 50px;
+}
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+}
+.product {
+  background: #111;
+  border: 1px solid #222;
+  padding: 25px;
+  text-align: center;
+  transition: .3s;
+}
+.product:hover {
+  transform: translateY(-5px);
+  border-color: #c9a96a;
+}
+.bottle {
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #29241b, #111 70%);
+  margin-bottom: 25px;
+}
+.flacon {
+  width: 115px;
+  height: 175px;
+  background: linear-gradient(110deg, #222, #b18b46, #171717);
+  border: 1px solid #b99a5b;
+  border-radius: 12px 12px 22px 22px;
+  position: relative;
+  box-shadow: 0 0 35px #c9a96a22;
+}
+.flacon::before {
+  content: "";
+  width: 42px;
+  height: 30px;
+  background: #c9a96a;
+  position: absolute;
+  top: -30px;
+  left: 35px;
+  border-radius: 4px 4px 0 0;
+}
+.flacon::after {
+  content: "VANTA";
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 75px;
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: #f0d6a0;
+}
+.product h3 {
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+.product p {
+  color: #999;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.price {
+  color: #c9a96a !important;
+  font-size: 18px !important;
+  margin-top: 15px;
+}
+.about {
+  text-align: center;
+  max-width: 700px;
+  margin: auto;
+  line-height: 2;
+  color: #aaa;
+}
+.about strong {
+  color: #c9a96a;
+}
+footer {
+  padding: 35px 20px;
+  border-top: 1px solid #222;
+  text-align: center;
+  color: #777;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+footer span {
+  color: #c9a96a;
+}
+@media(max-width:600px) {
+  nav {
+    padding: 20px;
+    flex-direction: column;
+    gap: 18px;
+  }
+  nav a {
+    margin: 0 8px;
+    font-size: 10px;
+  }
+  .hero h1 {
+    letter-spacing: 8px;
+  }
+  .section {
+    padding: 60px 6%;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">VANTA</div>
+  <div>
+    <a href="#home">HOME</a>
+    <a href="#shop">SHOP</a>
+    <a href="#about">ABOUT</a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <h1>VANTA</h1>
+  <p>OWN THE ATMOSPHERE</p>
+  <button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+    EXPLORE COLLECTION
+  </button>
+</section>
+
+<section class="section" id="shop">
+  <h2>THE COLLECTION</h2>
+  <div class="products">
+
+    <div class="product">
+      <div class="bottle">
+        <div class="flacon"></div>
+      </div>
+      <h3>VANTA NOIR</h3>
+      <p>Dark woods · Vanilla · Amber</p>
+      <p class="price">$49.00</p>
+    </div>
+
+    <div class="product">
+      <div class="bottle">
+        <div class="flacon"></div>
+      </div>
+      <h3>VANTA AURA</h3>
+      <p>Bergamot · Fresh air · Cedar</p>
+      <p class="price">$45.00</p>
+    </div>
+
+    <div class="product">
+      <div class="bottle">
+        <div class="flacon"></div>
+      </div>
+      <h3>VANTA NIGHT</h3>
+      <p>Spice · Musk · Warm woods</p>
+      <p class="price">$55.00</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="about">
+  <h2>OUR STORY</h2>
+  <div class="about">
+    <p>
+      <strong>VANTA</strong> was built around individuality, confidence,
+      and creating a scent that leaves an impression.
+      Founded by <strong>Logan & Drew</strong>, we're creating
+      a brand that brings a bold vision to fragrance.
+      <br><br>
+      <i>Own the atmosphere.</i>
+    </p>
+  </div>
+</section>
+
+<footer>
+  VANTA © 2026 · CREATED BY LOGAN & DREW
+  <br><br>
+  <span>OWN THE ATMOSPHERE</span>
+</footer>
+
+</body>
+</html>
